@@ -1,15 +1,27 @@
-*~
-.fuse_hidden*
-.directory
-.Trash-*
+# Maven
+build/
+dist/
+nbproject/
+target/
+dependency-reduced-pom.xml
 
-*.iml
+# Netbeans
+nb-configuration.xml
+nb-actions.xml
+
+# Eclipse
+.settings/
+.project
+.classpath
+.externalToolBuilders/
+bin/
+maven-eclipse.xml
+
+# IntelliJ IDEA
 .idea/
-*.iws
-/out/
-.idea_modules/
-atlassian-ide-plugin.xml
-com_crashlytics_export_strings.xml
-crashlytics.properties
-crashlytics-build.properties
-fabric.properties
+*.iml
+
+# Spoon
+spooned-classes/
+spooned/
+doc/_jekyll/_site/
