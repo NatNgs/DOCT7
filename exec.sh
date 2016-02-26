@@ -11,14 +11,14 @@ mkdir MutatedSrc
 
 cd MutationGenerator
 echo  -n "Build mutation generator.."
-mvn clean compile assembly:single > /dev/null 2> /dev/null
+mvn clean compile assembly:single > /dev/null
 echo ".Done"
 
 cd target
 
 jar=$(find -name "mutationGenerator*.jar")
 
-java -jar $jar ../../OriginalSrc ../../MutatedSrc
+java -jar $jar "../../OriginalSrc/" "../../MutatedSrc/"
 
 cd ../..
 
