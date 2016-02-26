@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="fr.unice.polytech.isa.tcf.CatalogueTest" time="0.081" tests="2" errors="0" skipped="0" failures="2">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
+    <property name="java.vm.version" value="25.72-b15"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="FR"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/home/rhoo/PROJAN/4A_ISA_TheCookieFactory/j2e"/>
+    <property name="java.runtime.version" value="1.8.0_72-b15"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-oracle/jre/lib/endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Linux"/>
+    <property name="classworlds.conf" value="/usr/share/maven/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="3.13.0-77-generic"/>
+    <property name="user.home" value="/home/rhoo"/>
+    <property name="user.timezone" value="Europe/Paris"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="user.name" value="rhoo"/>
+    <property name="java.class.path" value="/usr/share/maven/boot/plexus-classworlds-2.x.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="/usr/lib/jvm/java-8-oracle/jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean package"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="fr"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_72"/>
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-8-oracle/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="securerandom.source" value="file:/dev/./urandom"/>
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="/usr/share/maven"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase name="preMadeRecipesAreAVailable" classname="fr.unice.polytech.isa.tcf.CatalogueTest" time="0.067">
+    <failure message="expected:&lt;4&gt; but was:&lt;3&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<4> but was:<3>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:645)
+	at org.junit.Assert.assertEquals(Assert.java:631)
+	at fr.unice.polytech.isa.tcf.CatalogueTest.preMadeRecipesAreAVailable(CatalogueTest.java:22)
+]]></failure>
+    <system-err><![CDATA[févr. 24, 2016 12:57:36 PM org.apache.tomee.embedded.Container start
+INFOS: Starting TomEE from: /tmp/arquillian-apache-tomee
+févr. 24, 2016 12:57:36 PM org.apache.coyote.AbstractProtocol init
+INFOS: Initializing ProtocolHandler ["http-bio-8080"]
+févr. 24, 2016 12:57:36 PM org.apache.catalina.core.StandardService startInternal
+INFOS: Starting service Tomcat
+févr. 24, 2016 12:57:36 PM org.apache.catalina.core.StandardEngine startInternal
+INFOS: Starting Servlet Engine: Apache Tomcat/7.0.63
+févr. 24, 2016 12:57:36 PM org.apache.coyote.AbstractProtocol start
+INFOS: Starting ProtocolHandler ["http-bio-8080"]
+févr. 24, 2016 12:57:37 PM org.apache.openejb.util.OptionsLog info
+INFOS: Using 'openejb.jdbc.datasource-creator=org.apache.tomee.jdbc.TomEEDataSourceCreator'
+févr. 24, 2016 12:57:37 PM org.apache.openejb.OpenEJB$Instance <init>
+INFOS: ********************************************************************************
+févr. 24, 2016 12:57:37 PM org.apache.openejb.OpenEJB$Instance <init>
+INFOS: OpenEJB http://tomee.apache.org/
+févr. 24, 2016 12:57:37 PM org.apache.openejb.OpenEJB$Instance <init>
+INFOS: Startup: Wed Feb 24 12:57:37 CET 2016
+févr. 24, 2016 12:57:37 PM org.apache.openejb.OpenEJB$Instance <init>
+INFOS: Copyright 1999-2015 (C) Apache OpenEJB/TomEE Project, All Rights Reserved.
+févr. 24, 2016 12:57:37 PM org.apache.openejb.OpenEJB$Instance <init>
+INFOS: Version: 4.7.3
+févr. 24, 2016 12:57:37 PM org.apache.openejb.OpenEJB$Instance <init>
+INFOS: Build date: 20151204
+févr. 24, 2016 12:57:37 PM org.apache.openejb.OpenEJB$Instance <init>
+INFOS: Build time: 06:14
+févr. 24, 2016 12:57:37 PM org.apache.openejb.OpenEJB$Instance <init>
+INFOS: ********************************************************************************
+févr. 24, 2016 12:57:37 PM org.apache.openejb.OpenEJB$Instance <init>
+INFOS: openejb.home = /tmp/arquillian-apache-tomee
+févr. 24, 2016 12:57:37 PM org.apache.openejb.OpenEJB$Instance <init>
+INFOS: openejb.base = /tmp/arquillian-apache-tomee
+févr. 24, 2016 12:57:37 PM org.apache.openejb.cdi.CdiBuilder initializeOWB
+INFOS: Created new singletonService org.apache.openejb.cdi.ThreadSingletonServiceImpl@6892b3b6
+févr. 24, 2016 12:57:37 PM org.apache.openejb.cdi.CdiBuilder initializeOWB
+INFOS: Succeeded in installing singleton service
+févr. 24, 2016 12:57:37 PM org.apache.openejb.config.ConfigurationFactory init
+INFOS: openejb configuration file is '/tmp/arquillian-apache-tomee/conf/openejb.xml'
+févr. 24, 2016 12:57:37 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFOS: Configuring Service(id=Tomcat Security Service, type=SecurityService, provider-id=Tomcat Security Service)
+févr. 24, 2016 12:57:37 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFOS: Configuring Service(id=Default Transaction Manager, type=TransactionManager, provider-id=Default Transaction Manager)
+févr. 24, 2016 12:57:37 PM org.apache.openejb.util.OptionsLog info
+INFOS: Using 'openejb.system.apps=false'
+févr. 24, 2016 12:57:37 PM org.apache.openejb.util.OptionsLog info
+INFOS: Using 'openejb.deployments.classpath=false'
+févr. 24, 2016 12:57:37 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFOS: Creating TransactionManager(id=Default Transaction Manager)
+févr. 24, 2016 12:57:37 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFOS: Creating SecurityService(id=Tomcat Security Service)
+févr. 24, 2016 12:57:37 PM org.apache.openejb.util.OptionsLog info
+INFOS: Using 'openejb.servicemanager.enabled=false'
+févr. 24, 2016 12:57:37 PM org.apache.openejb.util.JarExtractor extract
+INFOS: Extracting jar: /tmp/arquillian-tomee-app-working-dir/0/a03e728a-9cb3-45ed-8b23-42009c048284.war
+févr. 24, 2016 12:57:37 PM org.apache.openejb.util.JarExtractor extract
+INFOS: Extracted path: /tmp/arquillian-tomee-app-working-dir/0/a03e728a-9cb3-45ed-8b23-42009c048284
+févr. 24, 2016 12:57:37 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFOS: using default host: localhost
+févr. 24, 2016 12:57:37 PM org.apache.tomee.catalina.TomcatWebAppBuilder init
+INFOS: ------------------------- localhost -> /a03e728a-9cb3-45ed-8b23-42009c048284
+févr. 24, 2016 12:57:37 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFOS: Configuring enterprise application: /tmp/arquillian-tomee-app-working-dir/0/a03e728a-9cb3-45ed-8b23-42009c048284
+févr. 24, 2016 12:57:38 PM org.apache.openejb.config.InitEjbDeployments deploy
+INFOS: Auto-deploying ejb Database: EjbDeployment(deployment-id=Database)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.config.InitEjbDeployments deploy
+INFOS: Auto-deploying ejb cart-stateless: EjbDeployment(deployment-id=cart-stateless)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.config.InitEjbDeployments deploy
+INFOS: Auto-deploying ejb CashierBean: EjbDeployment(deployment-id=CashierBean)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.config.InitEjbDeployments deploy
+INFOS: Auto-deploying ejb CatalogueBean: EjbDeployment(deployment-id=CatalogueBean)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.config.InitEjbDeployments deploy
+INFOS: Auto-deploying ejb CustomerRegistryBean: EjbDeployment(deployment-id=CustomerRegistryBean)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.config.InitEjbDeployments deploy
+INFOS: Auto-deploying ejb KitchenBean: EjbDeployment(deployment-id=KitchenBean)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.config.InitEjbDeployments deploy
+INFOS: Auto-deploying ejb cart-stateful: EjbDeployment(deployment-id=cart-stateful)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFOS: Configuring Service(id=Default Managed Container, type=Container, provider-id=Default Managed Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.config.AutoConfig createContainer
+INFOS: Auto-creating a container for bean a03e728a-9cb3-45ed-8b23-42009c048284.Comp2134271532: Container(type=MANAGED, id=Default Managed Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFOS: Creating Container(id=Default Managed Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.core.managed.SimplePassivater init
+INFOS: Using directory /tmp for stateful session passivation
+févr. 24, 2016 12:57:38 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFOS: Configuring Service(id=Default Singleton Container, type=Container, provider-id=Default Singleton Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.config.AutoConfig createContainer
+INFOS: Auto-creating a container for bean Database: Container(type=SINGLETON, id=Default Singleton Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFOS: Creating Container(id=Default Singleton Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFOS: Configuring Service(id=Default Stateless Container, type=Container, provider-id=Default Stateless Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.config.AutoConfig createContainer
+INFOS: Auto-creating a container for bean cart-stateless: Container(type=STATELESS, id=Default Stateless Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFOS: Creating Container(id=Default Stateless Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFOS: Configuring Service(id=Default Stateful Container, type=Container, provider-id=Default Stateful Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.config.AutoConfig createContainer
+INFOS: Auto-creating a container for bean cart-stateful: Container(type=STATEFUL, id=Default Stateful Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFOS: Creating Container(id=Default Stateful Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.core.stateful.SimplePassivater init
+INFOS: Using directory /tmp for stateful session passivation
+févr. 24, 2016 12:57:38 PM org.apache.openejb.config.AppInfoBuilder build
+INFOS: Enterprise application "/tmp/arquillian-tomee-app-working-dir/0/a03e728a-9cb3-45ed-8b23-42009c048284" loaded.
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFOS: Assembling app: /tmp/arquillian-tomee-app-working-dir/0/a03e728a-9cb3-45ed-8b23-42009c048284
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=DatabaseLocalBean) --> Ejb(deployment-id=Database)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=global/a03e728a-9cb3-45ed-8b23-42009c048284/Database!fr.unice.polytech.isa.tcf.utils.Database) --> Ejb(deployment-id=Database)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=global/a03e728a-9cb3-45ed-8b23-42009c048284/Database) --> Ejb(deployment-id=Database)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=cart-statelessLocalBean) --> Ejb(deployment-id=cart-stateless)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=global/a03e728a-9cb3-45ed-8b23-42009c048284/cart-stateless!fr.unice.polytech.isa.tcf.components.carts.CartStatelessBean) --> Ejb(deployment-id=cart-stateless)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=cart-statelessLocal) --> Ejb(deployment-id=cart-stateless)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=global/a03e728a-9cb3-45ed-8b23-42009c048284/cart-stateless!fr.unice.polytech.isa.tcf.CartModifier) --> Ejb(deployment-id=cart-stateless)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=global/a03e728a-9cb3-45ed-8b23-42009c048284/cart-stateless) --> Ejb(deployment-id=cart-stateless)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=CashierBeanLocal) --> Ejb(deployment-id=CashierBean)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=global/a03e728a-9cb3-45ed-8b23-42009c048284/CashierBean!fr.unice.polytech.isa.tcf.Payment) --> Ejb(deployment-id=CashierBean)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=global/a03e728a-9cb3-45ed-8b23-42009c048284/CashierBean) --> Ejb(deployment-id=CashierBean)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=CatalogueBeanLocal) --> Ejb(deployment-id=CatalogueBean)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=global/a03e728a-9cb3-45ed-8b23-42009c048284/CatalogueBean!fr.unice.polytech.isa.tcf.CatalogueExploration) --> Ejb(deployment-id=CatalogueBean)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=global/a03e728a-9cb3-45ed-8b23-42009c048284/CatalogueBean) --> Ejb(deployment-id=CatalogueBean)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=CustomerRegistryBeanLocal) --> Ejb(deployment-id=CustomerRegistryBean)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=global/a03e728a-9cb3-45ed-8b23-42009c048284/CustomerRegistryBean!fr.unice.polytech.isa.tcf.CustomerRegistration) --> Ejb(deployment-id=CustomerRegistryBean)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=global/a03e728a-9cb3-45ed-8b23-42009c048284/CustomerRegistryBean!fr.unice.polytech.isa.tcf.CustomerFinder) --> Ejb(deployment-id=CustomerRegistryBean)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=global/a03e728a-9cb3-45ed-8b23-42009c048284/CustomerRegistryBean) --> Ejb(deployment-id=CustomerRegistryBean)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=KitchenBeanLocal) --> Ejb(deployment-id=KitchenBean)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=global/a03e728a-9cb3-45ed-8b23-42009c048284/KitchenBean!fr.unice.polytech.isa.tcf.OrderProcessing) --> Ejb(deployment-id=KitchenBean)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=global/a03e728a-9cb3-45ed-8b23-42009c048284/KitchenBean!fr.unice.polytech.isa.tcf.Tracker) --> Ejb(deployment-id=KitchenBean)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=global/a03e728a-9cb3-45ed-8b23-42009c048284/KitchenBean) --> Ejb(deployment-id=KitchenBean)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=cart-statefulLocalBean) --> Ejb(deployment-id=cart-stateful)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=global/a03e728a-9cb3-45ed-8b23-42009c048284/cart-stateful!fr.unice.polytech.isa.tcf.components.carts.CartStatefulBean) --> Ejb(deployment-id=cart-stateful)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=cart-statefulLocal) --> Ejb(deployment-id=cart-stateful)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=global/a03e728a-9cb3-45ed-8b23-42009c048284/cart-stateful!fr.unice.polytech.isa.tcf.CartModifier) --> Ejb(deployment-id=cart-stateful)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFOS: Jndi(name=global/a03e728a-9cb3-45ed-8b23-42009c048284/cart-stateful) --> Ejb(deployment-id=cart-stateful)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFOS: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@6892b3b6
+févr. 24, 2016 12:57:38 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFOS: OpenWebBeans Container is starting...
+févr. 24, 2016 12:57:38 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFOS: Adding OpenWebBeansPlugin : [CdiPlugin]
+févr. 24, 2016 12:57:38 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFOS: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+févr. 24, 2016 12:57:38 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFOS: All injection points were validated successfully.
+févr. 24, 2016 12:57:38 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFOS: OpenWebBeans Container has started, it took 92 ms.
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFOS: Created Ejb(deployment-id=CatalogueBean, ejb-name=CatalogueBean, container=Default Stateless Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFOS: Created Ejb(deployment-id=CustomerRegistryBean, ejb-name=CustomerRegistryBean, container=Default Stateless Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFOS: Created Ejb(deployment-id=KitchenBean, ejb-name=KitchenBean, container=Default Stateless Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFOS: Created Ejb(deployment-id=CashierBean, ejb-name=CashierBean, container=Default Stateless Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFOS: Created Ejb(deployment-id=cart-stateful, ejb-name=cart-stateful, container=Default Stateful Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFOS: Created Ejb(deployment-id=cart-stateless, ejb-name=cart-stateless, container=Default Stateless Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFOS: Created Ejb(deployment-id=Database, ejb-name=Database, container=Default Singleton Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFOS: Started Ejb(deployment-id=CatalogueBean, ejb-name=CatalogueBean, container=Default Stateless Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFOS: Started Ejb(deployment-id=CustomerRegistryBean, ejb-name=CustomerRegistryBean, container=Default Stateless Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFOS: Started Ejb(deployment-id=KitchenBean, ejb-name=KitchenBean, container=Default Stateless Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFOS: Started Ejb(deployment-id=CashierBean, ejb-name=CashierBean, container=Default Stateless Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFOS: Started Ejb(deployment-id=cart-stateful, ejb-name=cart-stateful, container=Default Stateful Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFOS: Started Ejb(deployment-id=cart-stateless, ejb-name=cart-stateless, container=Default Stateless Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFOS: Started Ejb(deployment-id=Database, ejb-name=Database, container=Default Singleton Container)
+févr. 24, 2016 12:57:38 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFOS: Deployed Application(path=/tmp/arquillian-tomee-app-working-dir/0/a03e728a-9cb3-45ed-8b23-42009c048284)
+]]></system-err>
+  </testcase>
+  <testcase name="regexpExploration" classname="fr.unice.polytech.isa.tcf.CatalogueTest" time="0.014">
+    <failure message="expected:&lt;5&gt; but was:&lt;2&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<5> but was:<2>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:645)
+	at org.junit.Assert.assertEquals(Assert.java:631)
+	at fr.unice.polytech.isa.tcf.CatalogueTest.regexpExploration(CatalogueTest.java:28)
+]]></failure>
+  </testcase>
+</testsuite>
