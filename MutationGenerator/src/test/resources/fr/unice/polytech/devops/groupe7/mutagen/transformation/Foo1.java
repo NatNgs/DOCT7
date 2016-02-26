@@ -1,4 +1,4 @@
-package fr.unice.polytech.groupe7.mutagen.transformation;
+package fr.unice.polytech.devops.groupe7.mutagen.transformation;
 
 // must **not** be in src/test/java so that it is not in the class path
 public class Foo1 implements IFoo { 

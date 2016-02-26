@@ -19,7 +19,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class Mutagen {
 
-	public void main(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception {
 		String sourceFolder = args[1];  // "src/" > fichier à tester
 		String outputFolder = args[2];  // "generated/" > fichier mutés
 

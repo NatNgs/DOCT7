@@ -1,4 +1,4 @@
-package fr.unice.polytech.groupe7.mutagen.transformation;
+package fr.unice.polytech.devops.groupe7.mutagen.transformation;
 
 
 public class Foo2 implements IFoo {

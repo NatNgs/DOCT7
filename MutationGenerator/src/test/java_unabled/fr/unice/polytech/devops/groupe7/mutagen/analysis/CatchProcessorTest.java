@@ -1,4 +1,4 @@
-package fr.unice.polytech.groupe7.mutagen.analysis;
+package fr.unice.polytech.devops.groupe7.mutagen.analysis;
 
 import fr.unice.polytech.devops.groupe7.mutagen.analysis.CatchProcessor;
 import org.junit.Test;

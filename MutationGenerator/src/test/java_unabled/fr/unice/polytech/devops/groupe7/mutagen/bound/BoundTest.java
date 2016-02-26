@@ -1,4 +1,4 @@
-package fr.unice.polytech.groupe7.mutagen.bound;
+package fr.unice.polytech.devops.groupe7.mutagen.bound;
 
 import fr.unice.polytech.devops.groupe7.mutagen.bound.processing.BoundProcessor;
 import fr.unice.polytech.devops.groupe7.mutagen.bound.processing.BoundTemplateProcessor;
