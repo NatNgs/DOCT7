@@ -11,7 +11,7 @@ mkdir MutatedSrc
 
 cd MutationGenerator
 echo  -n "Build mutation generator.."
-mvn package &> /dev/null
+# mvn package &> /dev/null
 echo ".Done"
 
 cd target
