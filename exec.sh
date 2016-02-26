@@ -3,8 +3,24 @@
 
 find . -name "Result.html" -type f -delete
 rm -rf TempResult
+rm -rf MutatedSrc
 mkdir TempResult
+mkdir MutatedSrc
 
+
+
+cd MutationGenerator
+echo  -n "Build mutation generator.."
+mvn package &> /dev/null
+echo ".Done"
+
+cd target
+
+jar=find -name "mutationGenerator*.jar"
+
+java -jar $jar ../../OriginalSrc ../../MutatedSrc
+
+cd ../..
 
 fichiers=`ls ./MutadedSrc/`
 i=1;
