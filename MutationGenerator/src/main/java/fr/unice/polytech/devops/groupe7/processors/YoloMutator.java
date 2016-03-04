@@ -10,7 +10,7 @@ import spoon.reflect.declaration.CtElement;
 public class YoloMutator extends AbstractProcessor<CtElement> {
 	@Override
 	public boolean isToBeProcessed(CtElement candidate){
-		return candidate instanceof CtBinaryOperator;
+		return candidate instanceof CtUnaryOperator;
 	}
 
 	@Override
@@ -18,7 +18,7 @@ public class YoloMutator extends AbstractProcessor<CtElement> {
 		if(!isToBeProcessed(candidate)){
 			return;
 		}
-		CtBinaryOperator op = (CtBinaryOperator) candidate;
-		op.setKind(BinaryOperatorKind.PLUS);
+		CtUnaryOperator op = (CtUnaryOperator) candidate;
+		op.setKind(UnaryOperatorKind.POSTDEC);
 	}
 }
