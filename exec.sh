@@ -1,5 +1,6 @@
 #!/bin/bash
 
+racine=$(pwd)
 
 find . -name "Result.html" -type f -delete
 rm -rf TempResult
@@ -8,44 +9,66 @@ mkdir TempResult
 mkdir MutatedSrc
 
 
-
 cd MutationGenerator
-echo  -n "Build mutation generator.."
-mvn clean compile assembly:single > /dev/null
-echo ".Done"
+# mvn install >> /dev/null 2> /dev/null
+cd ..
 
-cd target
 
-jar=$(find -name "mutationGenerator*.jar")
+cd ./OriginalSrc/
+projets=$(ls)
 
-java -jar $jar "../../OriginalSrc/" "../../MutatedSrc/"
-
-cd ../..
-
-fichiers=`ls ./MutatedSrc/`
 i=1;
-for fichier in $fichiers
+for projet in $projets
 do
-	echo -n "Build all $fichier .."
-	cd "./MutatedSrc/$fichier/"
-	# bash build_all.sh &> /dev/null 
-	cd ../..
-	cp -Rf "./MutatedSrc/$fichier/j2e/target/surefire-reports/" ./TempResult/
-	mkdir ./TempResult/surefire-reports-$i/
-	mv -f ./TempResult/surefire-reports/* ./TempResult/surefire-reports-$i/
-	i=$((i + 1))
+	if [ ! -d "$projet" ]; then
+		continue
+	fi  
+	
+	echo -n "Apply spoon on $projet.."
+	cd $projet
+	mvn clean >> /dev/null 2> /dev/null
+	cd ..
+	rm -rf ../MutatedSrc/$projet
+	cp -Rf $projet ../MutatedSrc/
+	# TODO :
+	# Add processor
 	echo ".Done"
+	
+	cd ../MutatedSrc/$projet
+
+		
+	echo -n "Build project $projet.."
+	mvn package >> /dev/null 2> /dev/null
+	echo ".Done"
+	echo -n "Run tests for $projet.."
+	mvn test >> /dev/null 2> /dev/null
+	
+	tests=$(find -name surefire-reports)
+	
+	for t in $tests
+	do
+		target="../../TempResult/surefire-reports-$i/"
+		mkdir $target
+		cp -Rf $t ../surefire-reports/ $target
+		i=$((i + 1))
+	done
+	echo ".Done"
+	cd $racine/OriginalSrc/
 done
 
+cd $racine
 
-rm -rf ./TempResult/surefire-reports
+
+
 find ./TempResult -name "*.txt" -type f -delete
 
-dossier="$(pwd)/TempResult/"
+dossier="$racine/TempResult/"
 
 cd "./XmlsCompiler/out/artifacts/XmlsCompiler_jar/"
 java -jar XmlsCompiler.jar "$dossier"
 
 mv Result.html ../../../../
 
+cd $racine
+rm -rf TempResult
 
