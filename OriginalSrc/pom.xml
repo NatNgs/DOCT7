@@ -37,7 +37,8 @@
         </executions>
         <configuration>
           <processors>
-            <processor>fr.unice.polytech.devops.groupe7.processors.EmptyMutator</processor>
+            <!--processor>fr.unice.polytech.devops.groupe7.processors.EmptyMutator</processor-->
+            <processor>fr.unice.polytech.devops.groupe7.processors.YoloMutator</processor>
           </processors>
         </configuration>
         <!--To be sure that you use the latest version of Spoon, specify it as dependency.-->

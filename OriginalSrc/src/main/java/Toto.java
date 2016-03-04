@@ -6,7 +6,7 @@ public class Toto {
 
     public int ultimateAnwser()
     {
-        int anwser = 42;
+        int anwser = (4*(20+3)-8)/2;
 
         return anwser;
     }
