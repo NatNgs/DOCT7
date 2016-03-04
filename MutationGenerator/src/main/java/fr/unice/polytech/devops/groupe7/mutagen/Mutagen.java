@@ -6,6 +6,9 @@ import spoon.Launcher;
 import spoon.reflect.code.BinaryOperatorKind;
 import spoon.reflect.code.CtBinaryOperator;
 import spoon.reflect.declaration.CtClass;
+import spoon.reflect.declaration.CtPackage;
+import spoon.reflect.factory.Factory;
+import spoon.reflect.factory.PackageFactory;
 import spoon.reflect.visitor.Filter;
 import spoon.reflect.visitor.filter.NameFilter;
 import spoon.reflect.visitor.filter.TypeFilter;
@@ -14,6 +17,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -26,7 +30,7 @@ public class Mutagen {
 
 		ArrayList<String> als = new ArrayList<>();
 		Collections.addAll(als, args);
-		System.out.println("Mutagen "+als.toString().replace("[", "\"").replace("]", "\"").replace(",", " "));
+		System.out.println("Mutagen "+als.toString());
 
 		if(args.length < 2) {
 			System.err.println("usage: Mutagen \"srcFolder/\" \"generatedFolder/\"");
@@ -45,7 +49,13 @@ public class Mutagen {
 
 
 		// v TODO > ERROR HERE
-		CtClass javaFile = (CtClass) l.getFactory().Package().getRootPackage().getElements(new NameFilter("*.java")).get(0);
+		NameFilter nf = new NameFilter("*");
+		Factory f = l.getFactory();
+		PackageFactory p = f.Package();
+		CtPackage rp = p.getRootPackage();
+		List<CtClass> fls = rp.getElements(nf);
+		System.out.println(f + " "+ p + " " + rp + " " + fls);
+		CtClass javaFile = fls.get(0);
 		// ^ TODO > ERROR HERE
 
 		// now we apply a transformation
