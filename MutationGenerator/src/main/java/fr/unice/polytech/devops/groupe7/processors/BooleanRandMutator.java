@@ -1,7 +1,8 @@
 package fr.unice.polytech.devops.groupe7.processors;
 
 import spoon.processing.AbstractProcessor;
-import spoon.reflect.code.*;
+import spoon.reflect.code.BinaryOperatorKind;
+import spoon.reflect.code.CtBinaryOperator;
 import spoon.reflect.declaration.CtElement;
 
 import java.util.Random;
@@ -11,18 +12,17 @@ import java.util.Random;
  * Changes '+', '-', '*', '/', '|', '&' and '^'
  * by one of 6 others randomly (1+2+3+4+5+6 should give 1-2^3*4/5&6 for example)
  */
-public class ArithmeticRandMutator extends AbstractProcessor<CtElement> {
+public class BooleanRandMutator extends AbstractProcessor<CtElement> {
 	private static final Random r = new Random(0l);
 	private static final int CHANCE = 30;    //  % of how many candidates will be processed
 
 	private static final BinaryOperatorKind[] kinds = new BinaryOperatorKind[]{
-			BinaryOperatorKind.PLUS,
-			BinaryOperatorKind.MINUS,
-			BinaryOperatorKind.MUL,
-			BinaryOperatorKind.DIV,
-			BinaryOperatorKind.BITAND,
-			BinaryOperatorKind.BITOR,
-			BinaryOperatorKind.BITXOR
+			BinaryOperatorKind.EQ,
+			BinaryOperatorKind.GE,
+			BinaryOperatorKind.LE,
+			BinaryOperatorKind.GT,
+			BinaryOperatorKind.NE,
+			BinaryOperatorKind.LT
 	};
 
 	@Override

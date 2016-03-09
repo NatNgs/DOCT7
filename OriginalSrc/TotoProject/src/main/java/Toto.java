@@ -22,10 +22,16 @@ public class Toto {
         return fact;
     }
 
-    public boolean isTrue(boolean b)
-    {
-        if(b == true)
+    public boolean isTrue(boolean b) {
+		int i=0;
+
+		if( false || !true)
+			if(i<(1*2) && i> (3-4) || 5<=(i+6) && (i^7|8&(i%9)) != 'A')
+				i++;
+		
+        if (b && i == 0)
             return true;
+        
         return false;
     }
 }
