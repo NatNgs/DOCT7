@@ -10,11 +10,12 @@ import java.util.Random;
 
 /**
  * Created by Nathaël N on 04/03/16.
- * Changes '+', '-', '*' and '/' by one of 3 others randomly (1+2+3+4+5+6 should give 1-2*3*4/5-6 for example)
+ * Changes 'public' 'private' 'protected'
+ * by one of 2 others randomly
  */
 public class PrivacityRandMutator extends AbstractProcessor<CtElement> {
-	private static final Random r = new Random(0l);
-	private static final int CHANCE = 30;    //  % of how many candidates will be processed
+	private static final Random r = new Random(42l);
+	private static final int CHANCE = 50;    //  % of how many candidates will be processed
 
 	private static final ModifierKind[] kinds = new ModifierKind[]{
 			ModifierKind.PUBLIC,
@@ -31,15 +32,11 @@ public class PrivacityRandMutator extends AbstractProcessor<CtElement> {
 		if(!(cm instanceof CtVariable))
 			return false;
 
-		// Selector
-		/*if(r.nextInt(100) > CHANCE)
-			return false;*/
-
 		ModifierKind mk = cm.getVisibility();
 
 		for(int i=kinds.length-1; i>=0; i--)
 			if(mk == kinds[i])
-				return true;
+				return (r.nextInt(100) < CHANCE); // SELECTOR
 		return false;
 	}
 

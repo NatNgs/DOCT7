@@ -3,22 +3,6 @@
 projet=$2
 racine=$1
 
-if [ ! -d "$projet" ]; then
-	continue
-fi  
-
-echo "Apply spoon on $projet..."
-cd $projet
-mvn clean --quiet
-cd ..
-rm -rf ../MutatedSrc/$projet
-cp -Rf $projet ../MutatedSrc/
-# TODO :
-# Add processor
-echo "Done spoon on $projet"
-
-cd ../MutatedSrc/$projet
-
 	
 echo "Build project $projet... "
 mvn package > "$racine/Reports/$projet mvn package.txt"

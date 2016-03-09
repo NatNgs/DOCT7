@@ -12,8 +12,8 @@ import java.util.Random;
  * by one of 6 others randomly (1+2+3+4+5+6 should give 1-2^3*4/5&6 for example)
  */
 public class ArithmeticRandMutator extends AbstractProcessor<CtElement> {
-	private static final Random r = new Random(0l);
-	private static final int CHANCE = 30;    //  % of how many candidates will be processed
+	private static final Random r = new Random(42l);
+	private static final int CHANCE = 50;    //  % of how many candidates will be processed
 
 	private static final BinaryOperatorKind[] kinds = new BinaryOperatorKind[]{
 			BinaryOperatorKind.PLUS,
@@ -30,15 +30,11 @@ public class ArithmeticRandMutator extends AbstractProcessor<CtElement> {
 		if(!(candidate instanceof CtBinaryOperator))
 			return false;
 
-		// Selector
-		/*if(r.nextInt(100) > CHANCE)
-			return false;*/
-
 		BinaryOperatorKind cbo = ((CtBinaryOperator) candidate).getKind();
 
 		for(int i=kinds.length-1; i>=0; i--)
 			if(cbo == kinds[i])
-				return true;
+				return (r.nextInt(100) < CHANCE); // SELECTOR
 		return false;
 	}
 

@@ -9,12 +9,12 @@ import java.util.Random;
 
 /**
  * Created by Nathaël N on 04/03/16.
- * Changes '+', '-', '*', '/', '|', '&' and '^'
- * by one of 6 others randomly (1+2+3+4+5+6 should give 1-2^3*4/5&6 for example)
+ * Changes '==' '>=' '<=' '>' '<' '!='
+ * by one of 5 others randomly
  */
 public class BooleanRandMutator extends AbstractProcessor<CtElement> {
-	private static final Random r = new Random(0l);
-	private static final int CHANCE = 30;    //  % of how many candidates will be processed
+	private static final Random r = new Random(42l);
+	private static final int CHANCE = 50;    //  % of how many candidates will be processed
 
 	private static final BinaryOperatorKind[] kinds = new BinaryOperatorKind[]{
 			BinaryOperatorKind.EQ,
@@ -30,15 +30,11 @@ public class BooleanRandMutator extends AbstractProcessor<CtElement> {
 		if(!(candidate instanceof CtBinaryOperator))
 			return false;
 
-		// Selector
-		/*if(r.nextInt(100) > CHANCE)
-			return false;*/
-
 		BinaryOperatorKind cbo = ((CtBinaryOperator) candidate).getKind();
 
 		for(int i=kinds.length-1; i>=0; i--)
 			if(cbo == kinds[i])
-				return true;
+				return (r.nextInt(100) < CHANCE); // SELECTOR
 		return false;
 	}
 

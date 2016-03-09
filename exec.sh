@@ -8,8 +8,8 @@ echo "Run mutation testing framework\n"
 
 
 find . -name "Result.html" -type f -delete
-#rm -rf MutatedSrc/
-#rm -rf Reports/
+rm -rf MutatedSrc/*
+rm -rf Reports/*
 mkdir TempResult 2> /dev/null
 mkdir MutatedSrc 2> /dev/null
 mkdir Reports	 2> /dev/null
@@ -27,6 +27,22 @@ projets=$(ls)
 i=1;
 for projet in $projets
 do
+	if [ ! -d "$projet" ]; then
+		continue
+	fi  
+
+	echo "Apply spoon on $projet..."
+	cd $projet
+	mvn clean --quiet
+	cd ..
+	rm -rf ../MutatedSrc/$projet
+	cp -Rf $projet ../MutatedSrc/
+	# TODO :
+	# Add processor
+	echo "Done spoon on $projet"
+	
+	cd ../MutatedSrc/$projet
+
 	sh $racine/execproject.sh $racine $projet &
 done
 
