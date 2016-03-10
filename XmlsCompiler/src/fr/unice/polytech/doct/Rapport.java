@@ -19,6 +19,9 @@ public class Rapport {
     //Nombre de mutant qui ont passé les tests en fonction du type de mutations
     private Map<String,Integer> acceptedMutation = new HashMap<>();
 
+    //Nombre de mutant qui n'ont pas passé les tests en fonction du type de mutations
+    private final Map<String,Integer> refusedMutation = new HashMap<>();
+
     //Liste des répertoires contenant les resultats de test des differents mutants
     private List<File> dirList = new ArrayList<>();
 
@@ -45,20 +48,20 @@ public class Rapport {
         }
             return false;
     }
+
     public void compile() throws IOException {
         for(File d : dirList)
             analyze(d);
         File xmlOuput = new File("Result.html");
 
         FileWriter fw = new FileWriter(xmlOuput);
-        fw.write("<!DOCTYPE html>\n\n<meta charset=\"UTF-8\">\n\n<html>\n\t<head>\n\t\t<title>Résultat du test par mutation</title>\n\t</head>\n\n<body>\n");
+        fw.write("<!DOCTYPE html>\n\n<meta charset=\"UTF-8\">\n\n<html>\n\t<head>\n\t\t<title>Résultat du test par mutation</title>\n\t\t<script src=\"http://code.highcharts.com/highcharts.js\"></script>\n\t\t<script src=\"jquery-1.12.0.min.js\"></script>\n\t</head>\n\n<body>\n");
 
         fw.write("\t<h2>Nombre de mutant tué: " + deadMutant+"</h2>\n");
         fw.write("\t<h2>Nombre de mutant vivant: " + aliveMutant + "</h2>\n");
         fw.write("\t<h3> Nombre de mutants vivant par type de mutations </h3>\n");
         fw.write("\t<ul>\n");
         for(String key : acceptedMutation.keySet()) {
-            System.out.println(key);
             fw.write("\t\t<li>Mutation de type " + key + ": " + acceptedMutation.get(key) + "</li>\n");
         }
         fw.write("\t</ul>\n");
@@ -69,26 +72,98 @@ public class Rapport {
                 fw.write("\t\t<li>"+mutation+"</li>\n");
             fw.write("\t</ul>\n");
         }
+        fw.write("\t<div id=\"container\" style=\"width:100%; height:400px;\"></div>\n\t<script>\n");
+
+        fw.write("var chart = new Highcharts.Chart({\n" +
+                "        chart: {\n" +
+                "            type: 'bar',\n" +
+                "            renderTo: 'container'\n" +
+                "        },\n" +
+                "        title: {\n" +
+                "            text: 'Resultats des tests par mutation'\n" +
+                "        },\n" +
+                "        xAxis: {\n" +
+                "        categories: [");
+        List<String> mutList = new ArrayList<>();
+        List<String> refList = new ArrayList<>();
+        List<String> accList = new ArrayList<>();
+        for(String s : refusedMutation.keySet())
+            refList.add(s);
+        for(String s : acceptedMutation.keySet())
+            accList.add(s);
+        for(String s : accList)
+            mutList.add(s);
+        mutList.removeAll(refList);
+        for(String s : refList)
+        mutList.add(s);
+        fw.write("'" + mutList.get(0) + "'");
+        for(int i = 0; i<mutList.size();i++)
+            fw.write(", '" + mutList.get(i) + "'");
+        fw.write("]\n" +
+                "        },\n" +
+                "        yAxis: {\n" +
+                "            title: {\n" +
+                "                text: 'Mutant'\n" +
+                "            }\n" +
+                "        },\n" +
+                "        series: [{\n" +
+                "            name: 'Alive',\n" +
+                "            data: [");
+                getNumber(acceptedMutation,mutList,fw);
+                fw.write("]\n" +
+                "        }, {\n" +
+                "            name: 'Dead',\n" +
+                "            data: [");
+                getNumber(refusedMutation,mutList,fw);
+                fw.write("]\n" +
+                "        }]\n" +
+                "    }); ");
+
+        fw.write("\t\t</script>");
         fw.write("</body>\n</html>");
         fw.close();
-
     }
 
+    private void getNumber(Map<String,Integer> mutation, List<String> mutList, FileWriter fw) throws IOException {
+        if(mutList.size() == 0)
+            fw.write("0");
+        else {
+            System.out.println(mutation.get(mutList.get(0)));
+            if (mutation.get(mutList.get(0)) == null)
+                fw.write("0");
+            else
+                fw.write(""+mutation.get(mutList.get(0)));
+            for (int i = 1; i < mutList.size(); i++) {
+                if (mutation.get(mutList.get(i)) == null)
+                    fw.write(", 0");
+                else
+                    fw.write(", " + mutation.get(mutList.get(i)));
+            }
+        }
+    }
     private void analyze(File directory) throws IOException {
         //On récupére la liste des fichiers de resultat du mutant
         File[] fileList = directory.listFiles();
         String mutationType = "";
         String preciseMutation = "";
+        for(File g : fileList) {
+            Scanner scann = new Scanner(g);
+
+            while (scann.hasNextLine()) {
+                //Si le fichier est celui qui contient le type de mutation on le recupere
+                if (g.getName().equals("mutation")) {
+                    mutationType = scann.nextLine();
+                    preciseMutation = scann.nextLine();
+                    break;
+                }
+                break;
+            }
+        }
         for(File f : fileList) {
             Scanner scan = new Scanner(f);
             String line;
+
             while(scan.hasNextLine()) {
-                //Si le fichier est celui qui contient le type de mutation on le recupere
-                if(f.getName().equals("mutation")) {
-                    mutationType = scan.nextLine();
-                    preciseMutation = scan.nextLine();
-                    break;
-                }
                 //Sinon on récupère les arguments de la balise <testsuite>
                 line = scan.nextLine();
                 String[] lineSplit = line.split(" ");
@@ -96,7 +171,16 @@ public class Rapport {
                     for(String s : lineSplit) {
                         String[] equalSplit = s.split("=");
 
-                        if (searchAndUpdate("failures", equalSplit)) return;
+                        boolean error = false;
+                        if (searchAndUpdate("failures", equalSplit)) error = true;
+                        if (searchAndUpdate("errors", equalSplit)) error = true;
+                        if(error) {
+                            if(refusedMutation.containsKey(mutationType))
+                                refusedMutation.put(mutationType,refusedMutation.get(mutationType)+1);
+                            else
+                                refusedMutation.put(mutationType,1);
+                            return;
+                        }
                     }
                 }
             }
