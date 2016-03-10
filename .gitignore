@@ -34,7 +34,7 @@ out/
 *.iml
 
 Result.html
-/target/
+target/
 
 MutatedSrc/
 TempResult/
