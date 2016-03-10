@@ -4,12 +4,13 @@ clear
 racine=$(pwd)
 
 echo "################################"
-echo "Run mutation testing framework\n"
+echo -e "Run mutation testing framework\n"
 
 
 find . -name "Result.html" -type f -delete
 rm -rf MutatedSrc/*
 rm -rf Reports/*
+rm -rf MutatedSrc/*
 mkdir TempResult 2> /dev/null
 mkdir MutatedSrc 2> /dev/null
 mkdir Reports	 2> /dev/null
@@ -17,14 +18,17 @@ mkdir Reports	 2> /dev/null
 echo -n "Install mutation generator..."
 cd MutationGenerator
 mvn clean install > "$racine/Reports/Mutagen mvn install.txt"
+cd ../MutationApply
+bash build.sh
 cd ..
 echo "Done"
 
+processors=$(cat processors)
 
 cd ./OriginalSrc/
 projets=$(ls)
 
-i=1;
+
 for projet in $projets
 do
 	if [ ! -d "$projet" ]; then
@@ -35,15 +39,20 @@ do
 	cd $projet
 	mvn clean --quiet
 	cd ..
-	rm -rf ../MutatedSrc/$projet
-	cp -Rf $projet ../MutatedSrc/
-	# TODO :
-	# Add processor
-	echo "Done spoon on $projet"
+	i=1;
+	for processor in $processors
+	do
+		uname="$projet-$i"
+		cp -Rf "$projet" "$racine/MutatedSrc/$uname"
+		cd $racine/MutationApply	
+		java -jar MutationApply.jar $racine/MutatedSrc/$uname $processor
+		echo "Done spoon on $projet"
+		cd  $racine/MutatedSrc/$uname
+		bash $racine/execproject.sh $racine $uname &
+		cd $racine/OriginalSrc/
+		i=$((i + 1))
+	done
 	
-	cd ../MutatedSrc/$projet
-
-	sh $racine/execproject.sh $racine $projet &
 done
 
 wait

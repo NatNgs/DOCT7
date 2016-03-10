@@ -1,0 +1,25 @@
+		<plugin>
+			<groupId>fr.inria.gforge.spoon</groupId>
+			<artifactId>spoon-maven-plugin</artifactId>
+			<version>2.1</version>
+			<executions>
+			  <execution>
+				<phase>generate-sources</phase>
+				<goals>
+				  <goal>generate</goal>
+				</goals>
+			  </execution>
+			</executions>
+			<configuration>
+			  <processors>
+				#PROCESSORS</processors>
+			</configuration>
+			<dependencies>
+			  <dependency>
+				<groupId>fr.unice.polytech.devops.groupe7</groupId>
+				<artifactId>mutationGenerator</artifactId>
+				<version>1.0-SNAPSHOT</version>
+			  </dependency>
+			</dependencies>
+		</plugin>
+      
