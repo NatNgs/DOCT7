@@ -13,7 +13,29 @@ public class MutationApply {
         this.mutator = mutator;
     }
 
-    public void Apply()
+    public void apply()
+    {
+        if(!loadPom())
+        {
+            System.err.println("Could not load pom.xml for project " + project);
+            return;
+        }
+
+        applyMutator();
+        saveMutator();
+    }
+
+    private boolean loadPom()
+    {
+        return false;
+    }
+
+    private void applyMutator()
+    {
+
+    }
+
+    private void saveMutator()
     {
 
     }
