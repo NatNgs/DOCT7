@@ -15,7 +15,7 @@ import java.util.Random;
  */
 public class PrivacityRandMutator extends SuperMutator {
 	private static final Random r = new Random(42l);
-	private static final int CHANCE = 50;    //  % of how many candidates will be processed
+	private static final int CHANCE = 100;    //  % of how many candidates will be processed
 
 	protected static final String mutatorName = "Privacy";
 
