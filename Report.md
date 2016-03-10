@@ -1,7 +1,7 @@
 Architechture :
 
 	MutationGenerator :
-	
+		Projet maven contenant les processor spoon à executer.
 
 	MutationApply :
 		Projet maven, génère un jar qui permet d'ajouter les dépendances nécessaires dans le pom.xml des projets à tester
@@ -17,14 +17,14 @@ Architechture :
 		
 
 
-Forces du projet :
+	Forces du projet :
 Facilité pour rajouter des processeurs.
 Selection simple des processeurs à exécuter.
 Possibilité d'appliquer autant de jeux de processeur que souhaité.
 Exécution de différents projets en parallèle pour accélérer le processeur.
 
 
-Faiblesses :
+	Faiblesses :
 Nombreux modules différents => architechture complexe/peu élégante.
 Rapport généré ?
 Méthode pour rajouter les processeurs sur les projet à améliorer.
