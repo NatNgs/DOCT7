@@ -16,9 +16,11 @@ tests=$(find -name surefire-reports)
 
 for t in $tests
 do
-	target="../../TempResult/surefire-reports-$projet/"
+	target="../../TempResult/surefire-reports-$projet"
 	mkdir $target
-	cp -Rf $t ../surefire-reports/ $target
+	pwd
+	ls
+	cp -Rf $t/* $target
 done
 echo -e "Done tests $projet \n"
 cd $racine/OriginalSrc/
