@@ -11,9 +11,11 @@ import java.util.Random;
  * Changes '+', '-', '*', '/', '|', '&' and '^'
  * by one of 6 others randomly (1+2+3+4+5+6 should give 1-2^3*4/5&6 for example)
  */
-public class ArithmeticRandMutator extends AbstractProcessor<CtElement> {
-	private static final Random r = new Random(42l);
-	private static final int CHANCE = 50;    //  % of how many candidates will be processed
+public class ArithmeticRandMutator extends SuperMutator {
+	private static final Random r = new Random(420l);
+	private static final int CHANCE = 100;    //  % of how many candidates will be processed
+
+	protected static final String mutatorName = "Arthmetic";
 
 	private static final BinaryOperatorKind[] kinds = new BinaryOperatorKind[]{
 			BinaryOperatorKind.PLUS,
@@ -46,5 +48,7 @@ public class ArithmeticRandMutator extends AbstractProcessor<CtElement> {
 		BinaryOperatorKind kind = op.getKind();
 
 		do op.setKind(kinds[r.nextInt(kinds.length)]); while(op.getKind() == kind);
+
+		infoWriter(candidate, kind.toString(), op.getKind().toString(), mutatorName);
 	}
 }

@@ -13,9 +13,11 @@ import java.util.Random;
  * Changes 'public' 'private' 'protected'
  * by one of 2 others randomly
  */
-public class PrivacityRandMutator extends AbstractProcessor<CtElement> {
+public class PrivacityRandMutator extends SuperMutator {
 	private static final Random r = new Random(42l);
 	private static final int CHANCE = 50;    //  % of how many candidates will be processed
+
+	protected static final String mutatorName = "Privacy";
 
 	private static final ModifierKind[] kinds = new ModifierKind[]{
 			ModifierKind.PUBLIC,
@@ -50,5 +52,7 @@ public class PrivacityRandMutator extends AbstractProcessor<CtElement> {
 		ModifierKind mk = cm.getVisibility();
 
 		do cm.setVisibility(kinds[r.nextInt(kinds.length)]); while(cm.getVisibility() == mk);
+
+		infoWriter(candidate, mk.toString(), cm.getVisibility().toString(), mutatorName);
 	}
 }
