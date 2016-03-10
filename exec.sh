@@ -15,13 +15,6 @@ mkdir TempResult 2> /dev/null
 mkdir MutatedSrc 2> /dev/null
 mkdir Reports	 2> /dev/null
 
-echo -n "Install mutation generator..."
-cd MutationGenerator
-mvn clean install > "$racine/Reports/Mutagen mvn install.txt"
-cd ../MutationApply
-bash build.sh
-cd ..
-echo "Done"
 
 processors=$(cat processors)
 
