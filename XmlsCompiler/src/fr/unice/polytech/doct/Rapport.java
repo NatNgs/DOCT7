@@ -97,7 +97,7 @@ public class Rapport {
         for(String s : refList)
         mutList.add(s);
         fw.write("'" + mutList.get(0) + "'");
-        for(int i = 0; i<mutList.size();i++)
+        for(int i = 1; i<mutList.size();i++)
             fw.write(", '" + mutList.get(i) + "'");
         fw.write("]\n" +
                 "        },\n" +
@@ -128,7 +128,6 @@ public class Rapport {
         if(mutList.size() == 0)
             fw.write("0");
         else {
-            System.out.println(mutation.get(mutList.get(0)));
             if (mutation.get(mutList.get(0)) == null)
                 fw.write("0");
             else
@@ -145,7 +144,7 @@ public class Rapport {
         //On récupére la liste des fichiers de resultat du mutant
         File[] fileList = directory.listFiles();
         String mutationType = "";
-        String preciseMutation = "";
+        ArrayList<String> preciseMutation = new ArrayList<>();
         for(File g : fileList) {
             Scanner scann = new Scanner(g);
 
@@ -153,7 +152,8 @@ public class Rapport {
                 //Si le fichier est celui qui contient le type de mutation on le recupere
                 if (g.getName().equals("mutation")) {
                     mutationType = scann.nextLine();
-                    preciseMutation = scann.nextLine();
+                    while(scann.hasNextLine())
+                        preciseMutation.add(scann.nextLine());
                     break;
                 }
                 break;
@@ -197,12 +197,12 @@ public class Rapport {
         //On stocke la mutation effectué et la ligne où elle a été effectué
         if(mutationList.containsKey(mutationType)) {
             ArrayList<String> prov = mutationList.get(mutationType);
-            prov.add(preciseMutation);
+            prov.addAll(preciseMutation);
             mutationList.put(mutationType, prov);
         }
         else {
             ArrayList<String> prov = new ArrayList<>();
-            prov.add(preciseMutation);
+            prov.addAll(preciseMutation);
             mutationList.put(mutationType, prov);
         }
         return;

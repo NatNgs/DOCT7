@@ -15,7 +15,7 @@ public class ArithmeticRandMutator extends SuperMutator {
 	private static final Random r = new Random(420l);
 	private static final int CHANCE = 100;    //  % of how many candidates will be processed
 
-	protected static final String mutatorName = "Arthmetic";
+	protected static final String mutatorName = "Arithmetic";
 
 	private static final BinaryOperatorKind[] kinds = new BinaryOperatorKind[]{
 			BinaryOperatorKind.PLUS,
