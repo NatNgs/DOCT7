@@ -12,9 +12,11 @@ import java.util.Random;
  * Changes '==' '>=' '<=' '>' '<' '!='
  * by one of 5 others randomly
  */
-public class BooleanRandMutator extends AbstractProcessor<CtElement> {
+public class BooleanRandMutator extends SuperMutator {
 	private static final Random r = new Random(42l);
 	private static final int CHANCE = 50;    //  % of how many candidates will be processed
+
+	protected static final String mutatorName = "Boolean";
 
 	private static final BinaryOperatorKind[] kinds = new BinaryOperatorKind[]{
 			BinaryOperatorKind.EQ,
@@ -46,5 +48,7 @@ public class BooleanRandMutator extends AbstractProcessor<CtElement> {
 		BinaryOperatorKind kind = op.getKind();
 
 		do op.setKind(kinds[r.nextInt(kinds.length)]); while(op.getKind() == kind);
+
+		infoWriter(candidate, kind.toString(), op.getKind().toString(), mutatorName);
 	}
 }

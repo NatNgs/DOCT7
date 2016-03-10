@@ -21,6 +21,7 @@ do
 	pwd
 	ls
 	cp -Rf $t/* $target
+	cp mutation $target
 done
 echo -e "Done tests $projet \n"
 cd $racine/OriginalSrc/

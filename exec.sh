@@ -72,7 +72,7 @@ java -jar XmlsCompiler.jar "$dossier"
 mv Result.html ../../../../ &
 
 cd $racine
-rm -rf TempResult &
+#rm -rf TempResult &
 
 echo "Done"
 echo "Report : Result.html"
