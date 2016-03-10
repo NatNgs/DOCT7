@@ -7,12 +7,12 @@ public class Main {
 
     public static void main(String args[])
     {
+
         if(args.length != 2)
         {
             System.err.println("Incorrect arguments : <project_path> <mutator>");
             return;
         }
-
         MutationApply ma = new MutationApply(args[0], args[1]);
         ma.apply();
     }
